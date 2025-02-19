@@ -4,25 +4,15 @@ from vg_sales.service.transform.fill_na import FillNa
 from vg_sales.service.transform.split_data import TrainTestSplit
 
 
-def data_processor_pipe():
+def data_processor_pipe(cat_features: list[str], num_features: list[str]):
     return Compose(
         [
             ConvertType(
-                [
-                    "Platform",
-                    "Genre",
-                    "Publisher",
-                ],
+                cat_features,
                 "category",
             ),
             ConvertType(
-                [
-                    "NA_Sales",
-                    "EU_Sales",
-                    "JP_Sales",
-                    "Other_Sales",
-                    "Global_Sales",
-                ],
+                num_features,
                 "double",
             ),
             FillNa(),

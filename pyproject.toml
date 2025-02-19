@@ -27,6 +27,7 @@ dev = [
   "ipykernel>=6.29.5, <7",
   "pip>=24.2",
   "pre-commit>=4.1.0, <5",
+  "pytest>=7.0.1, <8",
 ]
 
 [build-system]
